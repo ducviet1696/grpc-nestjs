@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package transaction;
+
+service TransactionService {
+  rpc GetTransaction(TransactionRequest) returns (TransactionResponse);
+}
+
+message Transaction {
+  string tokenKey = 1;
+  string bankCode = 2;
+  string accountNo = 3;
+  string payDate = 4;
+  string debitAmount = 5;
+  string respCode = 6;
+  string respDesc = 7;
+  Item item = 8;
+  string orderCode = 9;
+  string username = 10;
+  string realAmount = 11;
+  string promotionCode = 12;
+}
+
+message Item {
+  string qrInfor = 1;
+  string quantity = 2;
+  string note = 3;
+}
+
+message TransactionRequest {
+  Transaction transaction = 1;
+}
+
+message TransactionResponse {
+  Transaction data = 1;
+}
